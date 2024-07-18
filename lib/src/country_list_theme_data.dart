@@ -10,6 +10,7 @@ class CountryListThemeData {
   ///
   /// If null, the style will be set to [TextStyle(fontSize: 16)]
   final TextStyle? textStyle;
+  final TextStyle? iosCancelTextStyle;
 
   ///The style to use for search box text.
   ///
@@ -53,6 +54,7 @@ class CountryListThemeData {
   const CountryListThemeData({
     this.backgroundColor,
     this.textStyle,
+    this.iosCancelTextStyle,
     this.searchTextStyle,
     this.flagSize,
     this.inputDecoration,

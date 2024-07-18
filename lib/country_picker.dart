@@ -1,11 +1,18 @@
+/// Country Picker Library
 library country_picker;
 
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'src/country.dart';
 import 'src/country_list_bottom_sheet.dart';
+import 'src/country_list_item.dart';
+import 'src/country_list_item_theme_data.dart';
 import 'src/country_list_theme_data.dart';
 import 'src/country_list_view.dart';
+import 'src/country_service.dart';
 
 export 'src/country.dart';
 export 'src/country_list_theme_data.dart';
@@ -50,16 +57,22 @@ export 'src/country_service.dart';
 /// bottomSheet height is smaller than half of the screen. Otherwise it
 /// shouldn't be set. It has a default value of false.
 
+bool isPlatformIOS = kIsWeb ? true : Platform.isIOS;
+
 void showCountryPicker({
   required BuildContext context,
   required ValueChanged<Country> onSelect,
+  String? defaultCountryCode,
+  Country? selectedCountry,
   VoidCallback? onClosed,
   List<String>? favorite,
   List<String>? exclude,
   List<String>? countryFilter,
   bool showPhoneCode = false,
   CustomFlagBuilder? customFlagBuilder,
+  FlagErrorBuilder? flagErrorBuilder,
   CountryListThemeData? countryListTheme,
+  CountryListItemThemeData? countryListItemTheme = const CountryListItemThemeData(),
   bool searchAutofocus = false,
   bool showWorldWide = false,
   bool showSearch = true,
@@ -74,13 +87,17 @@ void showCountryPicker({
   showCountryListBottomSheet(
     context: context,
     onSelect: onSelect,
+    defaultCountryCode: defaultCountryCode,
+    selectedCountry: selectedCountry,
     onClosed: onClosed,
     exclude: exclude,
     favorite: favorite,
     countryFilter: countryFilter,
     showPhoneCode: showPhoneCode,
     customFlagBuilder: customFlagBuilder,
+    flagErrorBuilder: flagErrorBuilder,
     countryListTheme: countryListTheme,
+    countryListItemTheme: countryListItemTheme,
     searchAutofocus: searchAutofocus,
     showWorldWide: showWorldWide,
     showSearch: showSearch,
@@ -88,4 +105,11 @@ void showCountryPicker({
     useRootNavigator: useRootNavigator,
     moveAlongWithKeyboard: moveAlongWithKeyboard,
   );
+}
+
+Country? getDefaultCountry({
+  required String defaultCountryCode,
+}) {
+  final CountryService _countryService = CountryService();
+  return _countryService.findByCode(defaultCountryCode);
 }

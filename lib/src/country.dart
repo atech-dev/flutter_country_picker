@@ -2,6 +2,8 @@ import 'package:country_picker/src/country_parser.dart';
 import 'package:country_picker/src/utils.dart';
 import 'package:flutter/material.dart';
 
+import 'country_circular_flag_image.dart';
+import 'country_list_item_theme_data.dart';
 import 'country_localizations.dart';
 
 ///The country Model that has all the country
@@ -76,17 +78,18 @@ class Country {
   });
 
   Country.from({required Map<String, dynamic> json})
-      : phoneCode = json['e164_cc'],
-        countryCode = json['iso2_cc'],
-        e164Sc = json['e164_sc'],
-        geographic = json['geographic'],
-        level = json['level'],
-        name = json['name'],
-        example = json['example'],
-        displayName = json['display_name'],
-        fullExampleWithPlusSign = json['full_example_with_plus_sign'],
-        displayNameNoCountryCode = json['display_name_no_e164_cc'],
-        e164Key = json['e164_key'];
+      : phoneCode = json['e164_cc'] as String,
+        countryCode = json['iso2_cc'] as String,
+        e164Sc = json['e164_sc'] as int,
+        geographic = json['geographic'] as bool,
+        level = json['level'] as int,
+        name = json['name'] as String,
+        example = json['example'] as String,
+        displayName = json['display_name'] as String,
+        fullExampleWithPlusSign =
+            json['full_example_with_plus_sign'] as String?,
+        displayNameNoCountryCode = json['display_name_no_e164_cc'] as String,
+        e164Key = json['e164_key'] as String;
 
   static Country parse(String country) {
     if (country == worldWide.countryCode) {
@@ -152,9 +155,24 @@ class Country {
   @override
   int get hashCode => countryCode.hashCode;
 
+  String getNameLocalized(BuildContext context) {
+    return CountryLocalizations.of(context)
+        ?.countryName(countryCode: countryCode)
+        ?.replaceAll(RegExp(r"\s+"), " ") ?? "";
+  }
+
   /// provides country flag as emoji.
   /// Can be displayed using
   ///
   ///```Text(country.flagEmoji)```
   String get flagEmoji => Utils.countryCodeToEmoji(countryCode);
+
+  /// provides country flag as svg.
+  /// Can be displayed as a widget
+  ///
+  ///```country.flagSvgWidget```
+  Widget get flagSvgWidget => CountryCircularFlagImage(
+        flagName: countryCode,
+        flagSize: kDefaultFlagSize,
+      );
 }
