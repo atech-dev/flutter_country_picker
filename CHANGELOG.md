@@ -1,3 +1,6 @@
+## 3.2.0 - FP
+* Changed lib name to fp_country_picker
+
 ## 3.0.0 - FP
 * Customized modal and properties
 
