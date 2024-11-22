@@ -1,6 +1,17 @@
-## 3.0.0
-  * Customized modal and properties
+## 3.0.0 - FP
+* Customized modal and properties
 
+## 2.0.27
+* Add support for Persian (FA) localization
+* Add support for Danish (DA) localization
+* Fix Ireland in French localization
+* Fix East Timor in Arabic localization
+* Fix Benin in russian localization
+* Change Macedonia's country name to North Macedonia
+* Add `findByPhoneCode`: Returns a single country if it matches the given phone code.
+    ```Dart
+    var austria =CountryService().findByPhoneCode("43");
+    ```
 
 ## 2.0.26
   * Fix Turkish localization
