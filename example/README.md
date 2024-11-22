@@ -11,13 +11,13 @@ A flutter package to select a country from a list of countries.
  Add the package to your pubspec.yaml:
 
  ```yaml
- country_picker: ^2.0.27
+ fp_country_picker: ^2.0.27
  ```
  
  In your dart file, import the library:
 
  ```Dart
- import 'package:country_picker/country_picker.dart';
+ import 'package:fp_country_picker/country_picker.dart';
  ``` 
   Show country picker using `showCountryPicker`:
 ```Dart

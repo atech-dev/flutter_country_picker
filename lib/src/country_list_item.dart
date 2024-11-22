@@ -1,5 +1,5 @@
-import 'package:country_picker/country_picker.dart';
-import 'package:country_picker/src/country_list_item_theme_data.dart';
+import 'package:fp_country_picker/country_picker.dart';
+import 'package:fp_country_picker/src/country_list_item_theme_data.dart';
 import 'package:flutter/material.dart';
 
 import 'country_circular_flag_image.dart';

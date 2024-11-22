@@ -1,5 +1,5 @@
 /// Country Picker Library
-library country_picker;
+library fp_country_picker;
 
 import 'dart:io';
 

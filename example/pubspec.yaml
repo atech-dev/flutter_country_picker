@@ -13,7 +13,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  country_picker:
+  fp_country_picker:
     path: ../
   flutter_localizations:
     sdk: flutter

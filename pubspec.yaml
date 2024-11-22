@@ -1,4 +1,4 @@
-name: country_picker
+name: fp_country_picker
 description: A flutter package to select a country from a list of countries.
 
 version: 3.1.2+3
@@ -12,10 +12,10 @@ environment:
 dependencies:
   collection: ^1.18.0
   universal_io: ^2.2.2
-  flutter_svg: ^2.0.10+1
+  flutter_svg: ^2.0.15
   modal_bottom_sheet: ^3.0.0
   flutter_feather_icons: ^2.0.0+1
-  vector_graphics: ^1.1.11+1
+  vector_graphics: ^1.1.15
   flutter:
     sdk: flutter
 
@@ -27,4 +27,4 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   lint: ^2.3.0
-  vector_graphics_compiler: ^1.1.11+1
+  vector_graphics_compiler: ^1.1.15

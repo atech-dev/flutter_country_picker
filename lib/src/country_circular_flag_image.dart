@@ -48,7 +48,7 @@ class CountryCircularFlagImage extends StatelessWidget {
                 return SvgPicture(
                   AssetBytesLoader(
                     data.data!,
-                    packageName: 'country_picker',
+                    packageName: 'fp_country_picker',
                   ),
                   fit: BoxFit.cover,
                   width: flagSize * 2,
@@ -58,7 +58,7 @@ class CountryCircularFlagImage extends StatelessWidget {
                   flagUri,
                   fit: BoxFit.cover,
                   width: flagSize * 2,
-                  package: 'country_picker',
+                  package: 'fp_country_picker',
                 );
               }
             } catch (e, stackTrace) {
@@ -75,7 +75,7 @@ class CountryCircularFlagImage extends StatelessWidget {
   Future<String?> vecFileExists(String assetPath) async {
     try {
       final uri = "$assetPath.vec";
-      await rootBundle.load("packages/country_picker/$uri");
+      await rootBundle.load("packages/fp_country_picker/$uri");
       return uri;
     } catch (e) {
       return null;

@@ -1,5 +1,5 @@
-import 'package:country_picker/src/country_parser.dart';
-import 'package:country_picker/src/utils.dart';
+import 'package:fp_country_picker/src/country_parser.dart';
+import 'package:fp_country_picker/src/utils.dart';
 import 'package:flutter/material.dart';
 
 import 'country_circular_flag_image.dart';
@@ -7,7 +7,7 @@ import 'country_list_item_theme_data.dart';
 import 'country_localizations.dart';
 
 ///The country Model that has all the country
-///information needed from the [country_picker]
+///information needed from the [fp_country_picker]
 class Country {
   static Country worldWide = Country(
     phoneCode: '',
