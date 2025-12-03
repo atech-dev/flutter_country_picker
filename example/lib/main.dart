@@ -98,7 +98,7 @@ class HomePage extends StatelessWidget {
                   prefixIcon: const Icon(Icons.search),
                   border: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: const Color(0xFF8C98A8).withOpacity(0.2),
+                      color: const Color(0xFF8C98A8).withValues(alpha: 0.2),
                     ),
                   ),
                 ),*/
@@ -107,6 +107,16 @@ class HomePage extends StatelessWidget {
                   color: Colors.blue,
                   fontSize: 18,
                 ),*/
+              ),
+              header: Padding(
+                padding: const EdgeInsets.only(top: 10.0, bottom: 10.0, left: 20.0, right: 20.0),
+                child: const Text(
+                  'Select your country',
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
             );
           },

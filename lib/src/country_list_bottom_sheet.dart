@@ -29,6 +29,7 @@ void showCountryListBottomSheet({
   bool useSafeArea = false,
   bool useRootNavigator = false,
   bool moveAlongWithKeyboard = false,
+  Widget header = const SizedBox.shrink(),
 }) {
   Widget buildBuilder(BuildContext context) {
     final builder = _builder(
@@ -48,6 +49,7 @@ void showCountryListBottomSheet({
       moveAlongWithKeyboard,
       customFlagBuilder,
       flagErrorBuilder,
+      header,
     );
 
     return isPlatformIOS
@@ -98,6 +100,7 @@ Widget _builder(
   bool moveAlongWithKeyboard,
   CustomFlagBuilder? customFlagBuilder,
   FlagErrorBuilder? flagErrorBuilder,
+  Widget header,
 ) {
   final device = MediaQuery.of(context).size.height;
   final statusBarHeight = MediaQuery.of(context).padding.top;
@@ -153,6 +156,43 @@ Widget _builder(
           customFlagBuilder: customFlagBuilder,
           flagErrorBuilder: flagErrorBuilder,
         ),
+        /*return Padding(
+    padding: moveAlongWithKeyboard
+        ? MediaQuery.of(context).viewInsets
+        : EdgeInsets.zero,
+    child: Container(
+      height: height,
+      width: width,
+      padding: countryListTheme?.padding,
+      margin: countryListTheme?.margin,
+      decoration: BoxDecoration(
+        color: _backgroundColor,
+        borderRadius: _borderRadius,
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+        child: Column(
+          children: [
+            header,
+            Flexible(
+              child: CountryListView(
+                onSelect: onSelect,
+                exclude: exclude,
+                favorite: favorite,
+                countryFilter: countryFilter,
+                showPhoneCode: showPhoneCode,
+                countryListTheme: countryListTheme,
+                searchAutofocus: searchAutofocus,
+                showWorldWide: showWorldWide,
+                showSearch: showSearch,
+                customFlagBuilder: customFlagBuilder,
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
+  );*/
       ),
     ),
   );

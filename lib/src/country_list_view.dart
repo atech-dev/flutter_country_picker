@@ -112,6 +112,7 @@ class _CountryListViewState extends State<CountryListView> {
   late bool _searchAutofocus;
   String? _selectedCountryCode;
   ScrollController? _scrollController = ScrollController();
+  bool _isSearching = false;
 
   @override
   void initState() {
@@ -166,6 +167,24 @@ class _CountryListViewState extends State<CountryListView> {
     _filteredList.addAll(_countryList);
 
     _searchAutofocus = widget.searchAutofocus;
+  }
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
+
+  void _checkSearchText(String searchText) {
+    if (searchText.isNotEmpty) {
+      setState(() {
+        _isSearching = true;
+      });
+    } else {
+      setState(() {
+        _isSearching = false;
+      });
+    }
   }
 
   @override

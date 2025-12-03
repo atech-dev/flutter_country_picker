@@ -10,7 +10,7 @@ environment:
   sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
-  collection: ^1.18.0
+  collection: ^1.19.1
   universal_io: ^2.2.2
   flutter_svg: ^2.0.15
   modal_bottom_sheet: ^3.0.0
@@ -26,5 +26,5 @@ flutter:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  lint: ^2.3.0
+  lint: ^2.8.0
   vector_graphics_compiler: ^1.1.15

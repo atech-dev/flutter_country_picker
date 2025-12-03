@@ -1,4 +1,4 @@
-/// Country Picker Library
+/// A flutter package to select a country from a list of countries.
 library fp_country_picker;
 
 import 'dart:io';
@@ -79,6 +79,7 @@ void showCountryPicker({
   bool useSafeArea = false,
   bool useRootNavigator = false,
   bool moveAlongWithKeyboard = false,
+  Widget header = const SizedBox.shrink(),
 }) {
   assert(
     exclude == null || countryFilter == null,
@@ -104,6 +105,7 @@ void showCountryPicker({
     useSafeArea: useSafeArea,
     useRootNavigator: useRootNavigator,
     moveAlongWithKeyboard: moveAlongWithKeyboard,
+    header: header,
   );
 }
 
